@@ -51,7 +51,7 @@ public class LogCollector {
 		for (Path p : result) {
 			AsynchronousFileChannel channel = AsynchronousFileChannel.open(p, StandardOpenOption.READ);
 			FileNode node = new FileNode();
-			node.setBf(ByteBuffer.allocate(1000));
+			node.setBf(ByteBuffer.allocate(100000));
 			node.getBf().clear();
 			node.setCnt(null);
 			node.setOffset(config.fileoffset[index]);
@@ -104,7 +104,7 @@ public class LogCollector {
 		DateTime cur = new DateTime(curTime);
 		if(now.getHourOfDay() == cur.getHourOfDay()){
 			try {
-				Thread.sleep(300);
+				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
